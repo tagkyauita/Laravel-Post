@@ -11,6 +11,7 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
+
         for ($i = 1; $i <= 100; $i++) {
             
             $rand40 = str_random(40);
