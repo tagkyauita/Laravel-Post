@@ -19,6 +19,8 @@ class CommentsTableSeeder extends Seeder
             $params = [
                 'comment' => $rand40,
                 'post_id' => $i,
+                'created_at' => now(),
+                'updated_at' => now(),
             ];
 
             DB::table('comments')->insert($params);
