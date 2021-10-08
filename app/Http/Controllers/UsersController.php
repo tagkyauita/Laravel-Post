@@ -10,6 +10,6 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show')->with('user', $user);
+        return view('users.users')->with('user', $user);
     }
 }
