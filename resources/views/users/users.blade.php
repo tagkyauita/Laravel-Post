@@ -9,7 +9,7 @@
                 <i class="fas fa-user-circle fa-3x"></i>
                 <h3>
                 　{{$user->name}}
-　　　　  </h3>
+　　　　         </h3>
                 <div class="col-12">
                     <p>
                     {{$user->email}}
