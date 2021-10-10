@@ -40,3 +40,8 @@ body {
 .m-b-md {
     margin-bottom: 30px;
 }
+
+.form-group{
+    margin-top: 0px;
+    margin-bottom: 5px;
+}

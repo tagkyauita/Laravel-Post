@@ -1,3 +1,4 @@
+@if (Auth::user())
 <nav class="navbar navbar-expand navbar-light bg-light">
     <a class="navbar-brand" href="/"><i class="fas fa-home fa-2x"></i>
     </a>
@@ -15,3 +16,5 @@
         </ul>
     </div>
 </nav>
+
+@endif
