@@ -19,4 +19,4 @@ Route::get('/', function () {
 Route::get('signup','Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup','Auth\RegisterController@register')->name('signup.post');
 
-Route::get('users', 'UserController@show')->name('users');
+Route::get('users/{id}', 'UserController@show')->name('users');
