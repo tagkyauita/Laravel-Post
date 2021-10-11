@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="col-12 mt-3">
-                    @if ($user->id == Auth::user->id())
+                    @if ($user->id == Auth::user());
                         <a class="btn btn-outline-dark common-btn btn-sm edit-profile-btn" href="#"><i class="fas fa-user-edit"></i>プロフィール編集
                         </a>
                     @endif
