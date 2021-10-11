@@ -20,21 +20,21 @@
         </head>
         <body>
 
-            {{-- @if (Auth::check) --}}
+            @if (Auth::check())
 
-               {{-- @include('commons.header') --}}
+               @include('commons.header')
 
                 @yield('content')
 
-                {{-- @include('commons.footer') --}}
+                @include('commons.footer')
 
-            {{-- @else --}}
+            @else
 
-                {{-- @yield('content') --}}
+                @yield('content')
 
-                {{-- @include('commons.footer') --}}
+                @include('commons.footer')
 
-            {{-- @endif --}}
+            @endif
 
             <!-- JQuery -->
             <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>

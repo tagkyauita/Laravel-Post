@@ -19,5 +19,5 @@ Route::get('/', function () {
 Route::get('signup','Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup','Auth\RegisterController@register')->name('signup.post');
 
-Route::get('users/{id}', 'UsersController@show')->name('users.show');
-// ->middleware('auth')
+Route::get('users/{id}', 'UsersController@show')->middleware('auth')->name('users.show');
+

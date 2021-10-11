@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    public function show()
+    public function show($id)
     {
-        $user = User::find(1);
-        return view('users.users')->with('user', $user);
+        $user = User::findOrFail($id);
+        return view('users.show')->with('user', $user);
     }
 }
