@@ -17,7 +17,7 @@ class PostsTableSeeder extends Seeder
             $text = str_random(250);
             $data =
             [
-                'user_id' => $i,
+                'user_id' => rand(1,3),
                 'title' => $title,
                 'text' => $text,
                 'created_at' => now(),
