@@ -9,7 +9,6 @@
             　　<h2 class="logo-img mx-auto mb-2 mt-2">ログイン</h2>
             </div>
 
-
             {!! Form::open(['route' => 'login.post', 'class'=>'new_user','action'=>'{{ route() }}','accept-charset'=>'UFT-8']) !!}
              @csrf
                 <div class="form-group mt-1 mb-1">
