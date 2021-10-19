@@ -26,12 +26,12 @@
             </div>
             <div class="card-body">
                 @if (Auth::id() == $post->user_id)
-                <div class="post_edit text-right">
-                    <form method="post" action="#">
+                <div class="post_edit">
+                    <form class="edit_button" method="post" action="#">
                         @csrf
                         <button class="btn btn-primary btn-sm"><i class="far fa-edit"></i>編集</button>
                     </form>
-                    <form method="post" action="{{ route('posts.destroy', $post->id )}}" accept-charset="UTF-8">
+                    <form class="edit_button" method="post" action="{{ route('posts.destroy', $post->id )}}" accept-charset="UTF-8">
                         @csrf
                         <input name="_method" type="hidden" value="DELETE">
                         <button type="submit" class="btn btn-danger btn-sm" rel="nofollow" ><i class="far fa-trash-alt"></i>削除</button>
@@ -41,7 +41,7 @@
                 <h3 class="h5 title">
                     {{ $post->title }}
                 </h3>
-                <div class="mb-5">
+                <div class="mb-5 text">
                     {{ $post->text }}
                 </div>
                 <section>
