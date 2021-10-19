@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="jumbotron">
-    <h1 class="display-4 text-center">Laravel Post <i class="fas fa-mail-bulk"></i></h1>
+    <h1 class="display-4 text-center">Laravel Posts /Solo <i class="fas fa-mail-bulk"></i></h1>
 </div>
 
 <div class="col-md-8 col-md-2 mx-auto">
@@ -20,7 +20,7 @@
                 </a>
                 <a class="black-color" title="" href="">
                     <strong>
-                      {{ $user_name }}
+                      {{ $post->user->name }}
                     </strong>
                 </a>
             </div>
@@ -31,8 +31,9 @@
                         @csrf
                         <button class="btn btn-primary btn-sm"><i class="far fa-edit"></i>編集</button>
                     </form>
-                    <form method="post" action="{{ route('posts.destroy', $post->id )}}">
+                    <form method="post" action="{{ route('posts.destroy', $post->id )}}" accept-charset="UTF-8">
                         @csrf
+                        <input name="_method" type="hidden" value="DELETE">
                         <button type="submit" class="btn btn-danger btn-sm" rel="nofollow" ><i class="far fa-trash-alt"></i>削除</button>
                     </form>
                 </div>
