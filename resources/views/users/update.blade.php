@@ -10,7 +10,7 @@
                 <form class="edit-user" enctype="multipart/form-data" action="{{ route('users.update', $user->id) }}" accept-charset="UTF-8" method="post">
                     <input name="utf8" type="hidden" value="&#x2713;" />
                     <input name="id" type="hidden" value="" />
-                    @method('PATCH')
+                    @method('PUT')
                     @csrf
                     <div class="form-group">
                         <label for="name">ユーザー名</label>

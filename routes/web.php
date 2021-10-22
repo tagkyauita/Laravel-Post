@@ -23,6 +23,6 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('users/{id}', 'UsersController@show')->middleware('auth')->name('users.show');
 Route::get('users/{id}/edit', 'UsersController@edit')->name('users.edit');
-Route::patch('users/{id}', 'UsersController@update')->name('users.update');
+Route::put('users/{id}', 'UsersController@update')->name('users.update');
 
 Route::delete('posts/{id}', 'PostsController@destroy')->name('posts.destroy');
