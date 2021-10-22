@@ -2,6 +2,7 @@
 
 @section('content')
 
+@include('commons.error_messages')
 <div class="container mt-5">
     <div class="card">
         <div class="form-wrap col-xs-6 col-lg-5 mx-auto mt-4 mb-5">
