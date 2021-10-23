@@ -11,7 +11,7 @@
                     投稿の新規作成
                 </div>
                 <div class="card-body">
-                    <form class="upload" id="new_post" enctype="multipart/form-data" action="{{ route('posts.store', Auth::id()) }}" accept-charset="UTF-8" method="post">
+                    <form class="upload" id="new_post" enctype="multipart/form-data" action="{{ route('posts.store') }}" accept-charset="UTF-8" method="post">
                         @csrf
                         @method('POST')
                         <div class="md-form">

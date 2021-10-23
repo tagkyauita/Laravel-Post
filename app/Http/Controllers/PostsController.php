@@ -24,13 +24,12 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-    public function store(StorePost $request, $id) {
-        $validated = $request->validated();
+    public function store(StorePost $request) {
         
         $post = new Post;
-        $post->user_id = $id;
-        $post->title = $request->input('title');
-        $post->text = $request->input('body');
+        $post->user_id = Auth::id();
+        $post->title = $request->title;
+        $post->text = $request->body;
         $post->save();
 
         return redirect()->route('index');
