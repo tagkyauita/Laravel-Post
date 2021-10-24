@@ -12,7 +12,7 @@
 */
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'PostsController@index')->middleware('auth')->name('index');
+Route::get('/', 'PostsController@index', 'CommentsController@index')->middleware('auth')->name('index');
 
 Route::get('signup','Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup','Auth\RegisterController@register')->name('signup.post');
@@ -30,3 +30,6 @@ Route::post('posts', 'PostsController@store')->name('posts.store');
 Route::get('posts/{id}/edit', 'PostsController@edit')->name('posts.edit');
 Route::put('posts/{id}', 'PostsController@update')->name('posts.update');
 Route::delete('posts/{id}', 'PostsController@destroy')->name('posts.destroy');
+
+Route::post('comments/new', 'CommentsController@store')->name('comments.store');
+

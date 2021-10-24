@@ -45,16 +45,38 @@
                     {{ $post->text }}
                 </div>
                 <section>
-                <!-- コメント --
-                <div id="comment-post-1">
-                        コメントをここに挿入 -->
+                
+                <div id="comment-post-1">    
+                    <span class="help-block">
+                        @include('commons.error_messages')
+                    </span>
+                    
+                    @foreach($comments as $comment)
+                    @if ($comment->post_id == $post->id)
+                        <div class="container mt-4">
+                            <div class="border-top p-1">
+                                <span>
+                                    <strong>
+                                        <a class="no-text-decoration black-color" href="{{ route('users.show', $comment->user_id) }}">{{ $comment->user->name }}</a>
+                                    </strong>
+                                </span>
+                                <div class="comments mt-1">
+                                    <span>
+                                        {{ $comment->comment }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    @endforeach
                         <div class="m-4">
-                            <form class="w-100" action="" method="post">
-                                {{ csrf_field() }}
+                            <form class="w-100" action="{{ route('comments.store') }}" method="post">
+                                @method('POST')
+                                @csrf
                                     <input name="utf8" type="hidden" value=""/>
-                                    <input value="" type="hidden" name="user_id" />
-                                    <input value="" type="hidden" name="post_id" />
-                                    <input name="" value="" class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
+                                    <input value="{{ Auth::id() }}" type="hidden" name="user_id" />
+                                    <input value="{{ $post->id }}" type="hidden" name="post_id" />
+                                    <input name="comment" value="" class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
                                     </input>
                                     <div class="text-right">
                                         <input type="submit" value="&#xf075;コメント送信" class="far fa-comment btn btn-default btn-sm">
@@ -62,7 +84,8 @@
                                     </div>
                             </form>
                         </div>
-                <!-- </div> -->
+                </div>
+
                 </section>
             </div>
         </div>
