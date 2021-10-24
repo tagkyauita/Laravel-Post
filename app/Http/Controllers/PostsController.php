@@ -8,15 +8,18 @@ use App\Http\Requests\StorePost;
 
 use App\Post;
 use App\User;
+use App\Comment;
 
 class PostsController extends Controller
 {
     public function index() {
         $posts = Post::orderBy('created_at','desc')->paginate(10);
+        $comments = Comment::orderBy('created_at', 'desc');
         
         return view('posts.index',
         [
             'posts' => $posts,
+            'comments' => $comments,
         ]);
     }
 
@@ -35,12 +38,33 @@ class PostsController extends Controller
         return redirect()->route('index');
     }
 
+    public function edit($id) {
+        $post = Post::findOrFail($id);
+        return view('posts.edit', compact('post'));
+    }
+
+    public function update(StorePost $request, $id) {
+        $post = Post::findOrFail($id);
+        
+        if(Auth::id() == $post->user_id){
+            $post->title = $request->title;
+            $post->text = $request->body;
+            $post->save();
+
+            return redirect()->route('index');
+        }
+        return back()->with('error', '許可されていない操作です');
+    }
+
     public function destroy($id) {
         $post = Post::findOrFail($id);
         if(Auth::id() == $post->user_id){
             $post -> delete();
+
+            return redirect()->route('index');
         }
-        return back();
+        
+        return back()->with('error', '許可されていない操作です');;
     }
 }
 

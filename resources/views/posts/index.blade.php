@@ -27,7 +27,7 @@
             <div class="card-body">
                 @if (Auth::id() == $post->user_id)
                 <div class="post_edit">
-                    <form class="edit_button" method="post" action="#">
+                    <form class="edit_button" method="get" action="{{ route('posts.edit', $post->id ) }}">
                         @csrf
                         <button class="btn btn-primary btn-sm"><i class="far fa-edit"></i>編集</button>
                     </form>

@@ -60,6 +60,7 @@ class UsersController extends Controller
                 return view('users.show', compact('user'));
             }
         } 
-        return back()->with('error', '許可されていない操作です');        
+        return back()->with('error', '許可されていない操作です');
+        
     }
 }
