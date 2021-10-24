@@ -8,15 +8,18 @@ use App\Http\Requests\StorePost;
 
 use App\Post;
 use App\User;
+use App\Comment;
 
 class PostsController extends Controller
 {
     public function index() {
         $posts = Post::orderBy('created_at','desc')->paginate(10);
+        $comments = Comment::orderBy('created_at', 'desc');
         
         return view('posts.index',
         [
             'posts' => $posts,
+            'comments' => $comments,
         ]);
     }
 
@@ -57,6 +60,8 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         if(Auth::id() == $post->user_id){
             $post -> delete();
+
+            return redirect()->route('index');
         }
         
         return back()->with('error', '許可されていない操作です');;
