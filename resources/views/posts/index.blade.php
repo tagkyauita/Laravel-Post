@@ -45,30 +45,30 @@
                     {{ $post->text }}
                 </div>
                 <section>
-                
-                <div id="comment-post-1">    
-                    <span class="help-block">
-                        @include('commons.error_messages')
-                    </span>
-                    
-                    @foreach($comments as $comment)
-                    @if ($comment->post_id == $post->id)
-                        <div class="container mt-4">
-                            <div class="border-top p-1">
-                                <span>
-                                    <strong>
-                                        <a class="no-text-decoration black-color" href="{{ route('users.show', $comment->user_id) }}">{{ $comment->user->name }}</a>
-                                    </strong>
-                                </span>
-                                <div class="comments mt-1">
+                    <div id="comment-post-1">    
+                        <span class="help-block">
+                            @include('commons.error_messages')
+                        </span>
+                        
+                        @foreach($comments as $comment)
+                        @if ($comment->post_id == $post->id)
+                            <div class="container mt-4">
+                                <div class="border-top p-1">
                                     <span>
-                                        {{ $comment->comment }}
+                                        <strong>
+                                            <a class="no-text-decoration black-color" href="{{ route('users.show', $comment->user_id) }}">{{ $comment->user->name }}</a>
+                                        </strong>
                                     </span>
+                                    <div class="comments mt-1">
+                                        <span>
+                                            {{ $comment->comment }}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endif
-                    @endforeach
+                        @endif
+                        @endforeach
+
                         <div class="m-4">
                             <form class="w-100" action="{{ route('comments.store') }}" method="post">
                                 @method('POST')
@@ -84,8 +84,7 @@
                                     </div>
                             </form>
                         </div>
-                </div>
-
+                    </div>
                 </section>
             </div>
         </div>
