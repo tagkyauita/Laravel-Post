@@ -18,7 +18,7 @@
                 <a class="no-text-decoration" href="{{ route('users.show', $post->user_id) }}">
                     <i class="fas fa-user-circle fa-2x mr-1"></i>
                 </a>
-                <a class="black-color" title="" href="">
+                <a class="black-color" title="" href="#">
                     <strong>
                       {{ $post->user->name }}
                     </strong>
@@ -45,9 +45,27 @@
                     {{ $post->text }}
                 </div>
                 <section>
-                <!-- コメント --
+                
                 <div id="comment-post-1">
-                        コメントをここに挿入 -->
+                    <span>
+                    @include('commons.error_messages')
+                    </span>
+                    @foreach($post->comment as $comment)
+                        <div class="container mt-4">
+                            <div class="border-top p-1">
+                                <span>
+                                    <strong>
+                                        <a class="no-text-decoration black-color" href="#">ユーザー名</a>
+                                    </strong>
+                                </span>
+                                <div class="comments mt-1">
+                                    <span>
+                                        {{ $comment->comment }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach    
                         <div class="m-4">
                             <form class="w-100" action="" method="post">
                                 {{ csrf_field() }}
@@ -62,7 +80,8 @@
                                     </div>
                             </form>
                         </div>
-                <!-- </div> -->
+                </div>
+
                 </section>
             </div>
         </div>
