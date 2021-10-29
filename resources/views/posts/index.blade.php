@@ -50,12 +50,12 @@
                     <span>
                     @include('commons.error_messages')
                     </span>
-                    @foreach($post->comment as $comment)
+                    @foreach($post->comments as $comment)
                         <div class="container mt-4">
                             <div class="border-top p-1">
                                 <span>
                                     <strong>
-                                        <a class="no-text-decoration black-color" href="#">ユーザー名</a>
+                                        <a class="no-text-decoration black-color" href="{{ route('users.show', $comment->user->id) }}">{{ $comment->user->name }}</a>
                                     </strong>
                                 </span>
                                 <div class="comments mt-1">
