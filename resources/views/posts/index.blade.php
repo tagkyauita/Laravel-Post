@@ -47,7 +47,7 @@
                 <section>
                 
                 <div id="comment-post-1">
-                    <span>
+                    <span class="help-block">
                     <!-- @include('commons.error_messages') -->
                     </span>
                     @foreach($post->comments as $comment)
