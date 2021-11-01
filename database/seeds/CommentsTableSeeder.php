@@ -19,6 +19,7 @@ class CommentsTableSeeder extends Seeder
             $params = [
                 'comment' => $rand40,
                 'post_id' => $i,
+                'user_id' => rand(1,3),
                 'created_at' => now(),
                 'updated_at' => now(),
             ];

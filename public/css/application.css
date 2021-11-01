@@ -83,3 +83,6 @@ body {
 .edit_button {
     display: inline-block;
 }
+.user-show-name {
+    text-align: center;
+}
