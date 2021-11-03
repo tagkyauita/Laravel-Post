@@ -24,19 +24,18 @@ class CommentPost extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required',
-            'post_id' => 'required',
-            'comment' => 'required|max:40'
+            'post_id' => 'required|present',
+            'comments.*' => 'required|max:40'
         ];
     }
 
     public function messages()
     {
         return [
-            'user_id.required' => 'user_idがありません',
             'post_id.required' => 'post_idがありません',
-            'comment.required' => 'コメントを入力してください',
-            'comment.max' => 'コメントは40文字以下で入力してください',
+            'comments.*.required' => 'コメントを入力してください',
+            'comments.*.present' => '存在しない投稿です',
+            'comments.*.max' => 'コメントは40文字以下で入力してください',
         ];
     }
 }
