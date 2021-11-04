@@ -1,0 +1,12 @@
+{
+    "cSpell.enableFiletypes": [
+        "!yaml",
+        "Log",
+        "dockercompose",
+        "dockerfile",
+        "ini",
+        "log",
+        "sql",
+        "vue"
+    ]
+}

@@ -47,8 +47,8 @@
                 <section>
                 
                 <div id="comment-post-1">
-                    <span>
-                    @include('commons.error_messages')
+                    <span class="help-block">
+                    <!-- @include('commons.error_messages') -->
                     </span>
                     @foreach($post->comments as $comment)
                         <div class="container mt-4">
@@ -67,12 +67,13 @@
                         </div>
                     @endforeach    
                         <div class="m-4">
-                            <form class="w-100" action="" method="post">
-                                {{ csrf_field() }}
+                            <form class="w-100" action="{{ route('comments.store') }}" method="post">
+                                @csrf
+                                @method('POST')
                                     <input name="utf8" type="hidden" value=""/>
                                     <input value="" type="hidden" name="user_id" />
-                                    <input value="" type="hidden" name="post_id" />
-                                    <input name="" value="" class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
+                                    <input value="{{ $post->id }}" type="hidden" name="post_id" />
+                                    <input name="comments[{{ $post->id }}]" value="{{ old("comments.$post->id") }}" class="form-control comment-input border border-light mx-auto" placeholder="コメントを入力する">
                                     </input>
                                     <div class="text-right">
                                         <input type="submit" value="&#xf075;コメント送信" class="far fa-comment btn btn-default btn-sm">
