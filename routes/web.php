@@ -31,4 +31,4 @@ Route::get('posts/{id}/edit', 'PostsController@edit')->name('posts.edit');
 Route::put('posts/{id}', 'PostsController@update')->name('posts.update');
 Route::delete('posts/{id}', 'PostsController@destroy')->name('posts.destroy');
 
-Route::post('comments', 'CommentsController@store')->name('comments.store');
+Route::post('comments/{id}', 'CommentsController@store')->name('comments.store');

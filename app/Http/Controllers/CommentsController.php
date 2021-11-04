@@ -12,12 +12,13 @@ use App\Comment;
 
 class CommentsController extends Controller
 {
-    public function store(CommentPost $request)
+    public function store(CommentPost $request, $post_id)
     {
         $comment = new Comment();
         $comment->user_id = Auth::id();
         $comment->post_id = $request->post_id;
-        $comment->comment = $request->comments[0];
+        $comment->comment = $request->comments[$post_id];
+        // dd($comment->comment);
         $comment->save();
 
         return redirect()->route('index'); 
