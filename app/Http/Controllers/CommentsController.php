@@ -18,7 +18,6 @@ class CommentsController extends Controller
         $comment->user_id = Auth::id();
         $comment->post_id = $request->post_id;
         $comment->comment = $request->comments[$request->post_id];
-        dd($comment);
         $comment->save();
 
         return redirect()->route('index'); 
