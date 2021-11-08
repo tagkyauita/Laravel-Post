@@ -11,7 +11,7 @@
                     コメントの編集
                 </div>
                 <div class="card-body">
-                    <form class="upload" id="new_post" enctype="multipart/form-data" action="{{ route('comments.update', $comment->id) }}" accept-charset="UTF-8" method="POST">
+                    <form class="upload" id="new_post" action="{{ route('comments.update', $comment->id) }}" accept-charset="UTF-8" method="POST">
                     @method('PUT')    
                     @csrf
                         <div class="form-group">

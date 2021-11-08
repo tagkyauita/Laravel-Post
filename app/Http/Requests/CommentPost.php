@@ -24,7 +24,7 @@ class CommentPost extends FormRequest
     public function rules()
     {
         return [
-            'post_id' => 'sometimes|exists:posts,id',
+            'post_id' => 'required|exists:posts,id',
             'comments.*' => 'required|max:40'
         ];
     }
@@ -32,7 +32,7 @@ class CommentPost extends FormRequest
     public function messages()
     {
         return [
-            'post_id.sometimes' => 'post_idがありません',
+            'post_id.required' => 'post_idがありません',
             'post_id.exists' => '存在しない投稿です',
             'comments.*.required' => 'コメントを入力してください',
             'comments.*.max' => 'コメントは40文字以下で入力してください',
