@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommentPost extends FormRequest
+class CommentEdit extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,15 @@ class CommentPost extends FormRequest
     public function rules()
     {
         return [
-            'post_id' => 'sometimes|exists:posts,id',
-            'comments.*' => 'required|max:40'
+            'comments' => 'required|max:40'
         ];
     }
 
     public function messages()
     {
         return [
-            'post_id.sometimes' => 'post_idがありません',
-            'post_id.exists' => '存在しない投稿です',
-            'comments.*.required' => 'コメントを入力してください',
-            'comments.*.max' => 'コメントは40文字以下で入力してください',
+            'comments.required' => 'コメントを入力してください',
+            'comments.max' => 'コメントは40文字以内で入力してください',
         ];
     }
 }
