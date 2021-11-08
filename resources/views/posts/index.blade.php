@@ -33,7 +33,7 @@
                     </form>
                     <form class="edit_button" method="post" action="{{ route('posts.destroy', $post->id )}}" accept-charset="UTF-8">
                         @csrf
-                        <input name="_method" type="hidden" value="DELETE">
+                        @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" rel="nofollow" ><i class="far fa-trash-alt"></i>削除</button>
                     </form>
                 </div>
@@ -62,7 +62,7 @@
                                         </form>
                                         <form class="edit_button" method="post" action="{{ route('comments.destroy', $comment->id )}}" accept-charset="UTF-8">
                                             @csrf
-                                            ＠method('DELETE')
+                                            @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" rel="nofollow" ><i class="far fa-trash-alt"></i>削除</button>
                                         </form>
                                     </div>
