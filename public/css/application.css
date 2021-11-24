@@ -7,6 +7,77 @@ body {
     height: 100vh;
     margin: 0;
 }
+@media screen and (max-width: 485px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}
+@media screen and (max-width: 414px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    .navbar-brand {
+        display: inline-block;
+        padding-top: 0.3125rem;
+        padding-bottom: 0.3125rem;
+        margin-right: 1rem;
+        font-size: 0.8rem;
+        line-height: inherit;
+        white-space: nowwrap;
+    }
+    .navbar {
+        display: flex;
+    }
+    .navbar-expand .navbar-collapse {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .btn-info {
+        font-size: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .btn-store {
+        font-size: 8px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .btn-size {
+        font-size: 8px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+@media screen and (min-width: 415px) {
+    .btn-size {
+        font-size: 10px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+    .navbar {
+        display: flex;
+    }
+    .navbar-expand .navbar-collapse {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+@media screen and (max-width: 768px) {
+    .main {
+        padding: 75px 0;
+    }
+    .devise-card {
+        background-color: #fafafa;
+    }
+}
 .full-height {
     height: 100vh;
 }
