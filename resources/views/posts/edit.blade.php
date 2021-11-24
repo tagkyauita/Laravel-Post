@@ -21,7 +21,7 @@
                             <textarea name="body" rows="10" class="form-control" placeholder="本文">{{ old('body') ?? $post->text }}</textarea>
                         </div>
                         <div class="text-center">
-                            <input type="submit" name="commit" value="更新する" class="btn btn-primary w-25" data-disable-with="更新する"/>
+                            <input type="submit" name="commit" value="更新する" class="btn btn-primary btn-store w-25" data-disable-with="更新する"/>
                         </div>
                     </form>
                 </div>

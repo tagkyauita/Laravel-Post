@@ -51,7 +51,7 @@ class PostsController extends Controller
 
             return redirect()->route('index');
         }
-        return back()->with('error', '許可されていない操作です');
+        return redirect()->route('index')->with('error', '許可されていない操作です');
     }
 
     public function destroy($id) {
@@ -62,7 +62,7 @@ class PostsController extends Controller
             return redirect()->route('index');
         }
         
-        return back()->with('error', '許可されていない操作です');;
+        return redirect()->route('index')->with('error', '許可されていない操作です');
     }
 }
 

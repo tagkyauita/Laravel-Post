@@ -3,10 +3,14 @@
 @section('content')
 
 <div class="jumbotron">
-    <h1 class="display-4 text-center">Laravel Posts /Solo <i class="fas fa-mail-bulk"></i></h1>
+    <h1 class="display-4 text-center">Laravel Posts <i class="fas fa-mail-bulk"></i></h1>
 </div>
 
 <div class="col-md-8 col-md-2 mx-auto">
+  @if(session('error'))
+       <p class="alert alert-danger">{{ session('error') }}<p>
+  @endif
+
   @include('commons.error_messages')
 </div>
 
@@ -29,12 +33,12 @@
                 <div class="post_edit">
                     <form class="edit_button" method="get" action="{{ route('posts.edit', $post->id ) }}">
                         @csrf
-                        <button class="btn btn-primary btn-sm"><i class="far fa-edit"></i>編集</button>
+                        <button class="btn btn-primary btn-size"><i class="far fa-edit"></i>編集</button>
                     </form>
                     <form class="edit_button" method="post" action="{{ route('posts.destroy', $post->id )}}" accept-charset="UTF-8">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" rel="nofollow" ><i class="far fa-trash-alt"></i>削除</button>
+                        <button type="submit" class="btn btn-danger btn-size" rel="nofollow" ><i class="far fa-trash-alt"></i>削除</button>
                     </form>
                 </div>
                 @endif
@@ -58,12 +62,12 @@
                                     <div class="post_edit">
                                         <form class="edit_button" method="get" action="{{ route('comments.edit', $comment->id ) }}">
                                             @csrf
-                                            <button class="btn btn-primary btn-sm"><i class="far fa-edit"></i>編集</button>
+                                            <button class="btn btn-primary btn-size"><i class="far fa-edit"></i>編集</button>
                                         </form>
                                         <form class="edit_button" method="post" action="{{ route('comments.destroy', $comment->id )}}" accept-charset="UTF-8">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" rel="nofollow" ><i class="far fa-trash-alt"></i>削除</button>
+                                            <button type="submit" class="btn btn-danger btn-size" rel="nofollow" ><i class="far fa-trash-alt"></i>削除</button>
                                         </form>
                                     </div>
                                     @endif
